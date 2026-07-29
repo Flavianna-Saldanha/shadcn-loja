@@ -1,12 +1,14 @@
-import { ThemeToggle } from "@/components/theme-toggle";
-import { Button } from "@/components/ui/button"
+import { Footer } from "@/components/footer/footer";
+import { Header } from "@/components/header/header";
 
 const Page = () => {
 	return (
-		<div>
-			<Button>Button</Button>
-
-			<ThemeToggle />
+		<div className="w-full max-w-4xl mx-auto">
+			<Header />
+			<div className="mx-3">
+				...
+			</div>
+			<Footer />
 		</div>
 	)
 }
