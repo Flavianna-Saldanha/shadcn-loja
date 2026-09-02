@@ -1,8 +1,11 @@
 "use client"
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { getAllProducts } from "@/src/services/product";
 
-export const ProductsTab = () => {
+export const ProductsTab = async () => {
+	const products = await getAllProducts();
+
 	return (
 		<Tabs defaultValue="tab1">
 			<TabsList className="w-full flex">
