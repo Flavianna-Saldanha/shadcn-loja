@@ -22,13 +22,13 @@ export const CartSidebar = () => {
 					<SheetTitle>Carrinho</SheetTitle>
 				</SheetHeader>
 
-				<div className="flex flex-col gap-5 my-3">
+				<div className="flex flex-col gap-5 my-3 ml-4">
 					...
 				</div>
 
 				<Separator className="my-4" />
 
-				<div className="flex justify-between items-center text-xs">
+				<div className="flex justify-between items-center text-xs ml-4">
 					<div>Subtotal:</div>
 					<div>...</div>
 				</div>

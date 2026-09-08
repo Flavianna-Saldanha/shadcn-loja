@@ -49,15 +49,25 @@ export const ProductsTab = async () => {
 					</TabsTrigger>
 				))}
 			</TabsList>
+
 			{tabs.map(item => (
-				<TabsContent value={item.value} className="mt-6" key={item.value}>
+				<TabsContent 
+					key={item.value} 
+					value={item.value} 
+					className="mt-6"
+				>
 					{item.products.length > 0 &&
 						<div className="grid gap-5 grid-cols-2 sm:grid-cols-3 md:grid-cols-4">
-							{item.products.map(product => (
-								<ProductItem key={product.id} item={product} />
+							{item.products.map((product, index) => (
+								<ProductItem
+									key={product.id}
+									item={product}
+									priority={index === 0}
+								/>
 							))}
 						</div>
 					}
+
 					{item.products.length === 0 && <ProductEmpty />}
 				</TabsContent>
 			))}
