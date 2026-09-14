@@ -6,8 +6,8 @@ import { Progress } from "../ui/progress";
 import { StepUser } from "./step-user";
 import { StepAddress } from "./step-address";
 import { StepFinish } from "./step-finish";
+import { CheckoutStep } from "@/src/types/checkout-steps";
 
-type Steps = "user" | "address" | "finish";
 
 type Props = {
 	open: boolean;
@@ -15,7 +15,7 @@ type Props = {
 }
 
 export const CheckoutDialog = ({ open, onOpenChange }: Props) => {
-		const [step, setStep] = useState<Steps>("user");
+		const [step, setStep] = useState<CheckoutStep>("user");
 
 		 
 		let progressPct = 0;
