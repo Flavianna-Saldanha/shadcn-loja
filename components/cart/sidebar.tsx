@@ -14,7 +14,8 @@ export const CartSidebar = () => {
 	const [checkoutOpen, setCheckoutOpen] = useState(false);
 
 	let subtotal = 0;
-	for(const item of cart) {
+
+	for (const item of cart) {
 		subtotal += item.product.price * item.quantity;
 	}
 
@@ -25,6 +26,7 @@ export const CartSidebar = () => {
 					<Button className="relative">
 						<RocketIcon className="mr-2" />
 						<p>Carrinho</p>
+
 						{cart.length > 0 &&
 							<div className="absolute size-2.5 bg-red-600 rounded-full -right-0.5 -top-1"></div>
 						}
@@ -32,22 +34,30 @@ export const CartSidebar = () => {
 				}
 			/>
 
-			<SheetContent>
+			<SheetContent className="flex flex-col">
 				<SheetHeader>
 					<SheetTitle>Carrinho</SheetTitle>
 				</SheetHeader>
 
-				<div className="flex flex-col gap-5 my-3 mx-4">
+				<div className="flex-1 overflow-y-auto flex flex-col gap-5 my-3 mx-4 pr-2">
 					{cart.map(item => (
-						<CartItem key={item.product.id} item={item} />
+						<CartItem
+							key={item.product.id}
+							item={item}
+						/>
 					))}
 				</div>
 
 				<Separator className="my-4" />
 
 				<div className="flex justify-between items-center text-xs ml-4">
-					<div>Subtotal:</div>
-					<div>R$ {subtotal.toFixed(2)}</div>
+					<div>
+						Subtotal:
+					</div>
+
+					<div>
+						R$ {subtotal.toFixed(2)}
+					</div>
 				</div>
 
 				<Separator className="my-4" />
@@ -56,11 +66,12 @@ export const CartSidebar = () => {
 					<Button
 						onClick={() => setCheckoutOpen(true)}
 						disabled={cart.length === 0}
-					>Finalizar Compra
+					>
+						Finalizar Compra
 					</Button>
 				</div>
 
-				<CheckoutDialog 
+				<CheckoutDialog
 					open={checkoutOpen}
 					onOpenChange={setCheckoutOpen}
 				/>
